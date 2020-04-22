@@ -17,6 +17,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 set nocompatible
 set backspace=indent,eol,start
+" runtime macros/matchit.vim
+packadd! matchit
 
 set number
 set norelativenumber 
@@ -48,36 +50,6 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set autoindent
-
-" 设置<Space>a~z为nop 防止<LEADER>+没有映射的键时出现卡住的现象
-" 但是现在仍然存在问题，就是只按<Space>然后等一会儿后
-" 仍然会卡住。
-noremap  <Space>a <nop>
-noremap  <Space>b <nop>
-noremap  <Space>c <nop>
-noremap  <Space>d <nop>
-noremap  <Space>e <nop>
-noremap  <Space>f <nop>
-noremap  <Space>g <nop>
-noremap  <Space>h <nop>
-noremap  <Space>i <nop>
-noremap  <Space>j <nop>
-noremap  <Space>k <nop>
-noremap  <Space>l <nop>
-noremap  <Space>m <nop>
-noremap  <Space>n <nop>
-noremap  <Space>o <nop>
-noremap  <Space>p <nop>
-noremap  <Space>q <nop>
-noremap  <Space>r <nop>
-noremap  <Space>s <nop>
-noremap  <Space>t <nop>
-noremap  <Space>u <nop>
-noremap  <Space>v <nop>
-noremap  <Space>w <nop>
-noremap  <Space>x <nop>
-noremap  <Space>y <nop>
-noremap  <Space>z <nop>
 
 " noremap <Tab> >
 " noremap <S-Tab> <
@@ -163,6 +135,11 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'  
 Plug 'junegunn/vim-easy-align'
 Plug 'honza/vim-snippets'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-repeat'
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -381,3 +358,10 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" ===
+" === markdown preview 
+" ===
+nmap <silent> <F9> <Plug>MarkdownPreview        " for normal mode
+imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
+nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
+imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode

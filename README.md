@@ -1,5 +1,9 @@
 # dotfiles
 
+```shell
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
+
 ### Install Iterm2 
 [Download Url](https://www.iterm2.com/downloads.html)
 : https://www.iterm2.com/downloads.html
