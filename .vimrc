@@ -20,13 +20,13 @@ set backspace=indent,eol,start
 " runtime macros/matchit.vim
 packadd! matchit
 
+
 set number
 set norelativenumber 
 set cursorline 
 set wrap
 set showcmd
 set wildmenu
-
 " search
 set hlsearch
 exec "nohlsearch"
@@ -42,8 +42,6 @@ set nrformats=
 " set system clipboard enabled 
 " set clipboard=unnamed
 
-
-
 " tab 
 set noexpandtab
 set tabstop=2
@@ -51,8 +49,6 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 
-" noremap <Tab> >
-" noremap <S-Tab> <
 
 " split screen 
 noremap sl :set splitright<CR>:vsplit<CR>
@@ -95,13 +91,13 @@ noremap  <Space>h <C-w>h
 noremap  <Space>l <C-w>l
 nnoremap <Space>v <C-v>
 
-map s <nop>
+" map s <nop>
 map S :w<CR>
 map Q :q<CR>
 map fq :q!<CR>
-nnoremap RR :source $MYVIMRC<CR>
+nnoremap <c-l> :source $MYVIMRC<CR>
   
-" :colorscheme hi HighlightedyankRegion term=bold ctermbg=0 guibg=#13354A 
+nnoremap <enter> o<esc>
 
 call plug#begin('~/.vim/plugged')
 
@@ -120,6 +116,8 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" need to install the fzf
+" brew install fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
@@ -128,8 +126,6 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'tpope/vim-surround'
 " Plug 'ybian/smartim'
 Plug 'majutsushi/tagbar'
-" Plug 'w0ng/vim-hybrid'
-" Plug 'morhetz/gruvbox'
 " Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'  
@@ -139,7 +135,13 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-repeat'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'tmhedberg/SimpylFold'
+Plug 'mhartington/oceanic-next'
+
+" themes
+Plug 'franbach/miramare'
+" Plug 'w0ng/vim-hybrid'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -160,8 +162,10 @@ let NERDTreeMapCloseDir = "n"
 let NERDTreeMapChangeRoot = "y"
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeMinimalUI = 1
 " let NERDTreeIgnore = [
-
+" 窗口只剩下nerdtree的时候自动关闭
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ===
 " === Undotree
@@ -219,9 +223,9 @@ omap af <Plug>(coc-funcobj-a)
 nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> im <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> ma <Plug>(coc-format)
+nmap <silent> gm <Plug>(coc-format)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>rn <Plug>(coc-rename)
@@ -238,6 +242,9 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " coc-tasks
 noremap <silent> T :CocList tasks<CR>
 
+nnoremap [<space> o<Esc>
+
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " ===
 " === easymotion 
@@ -246,35 +253,42 @@ map em <Plug>(easymotion-s2)
 map ss <Plug>(easymotion-s2)
 
 
-
 " ===
-" === XkbSwitch 发现没有作用暂进注释掉了 
-" ===
+" === XkbSwitch 这个可以成功，但是会导致键盘移动时好卡，所以直接去掉了 
+" === 暂时先保留，后面再删除  
+" === 
 " let g:XkbSwitchLib = '/usr/local/lib/libInputSourceSwitcher.dylib'
 " let g:XkbSwitchEnabled = 1
 
-" 下面的也没有用处，也先注释掉  
+" ===
+" === 直接使用脚本来进行中文输入法的切换
+" === 本方法可以使用，但是切换仍然有些慢
+" === 实用性有待商榷
+" ===
+" trim(tolower(system("fcitx-remote -n")))=="com.apple.keylayout.abc"
+let g:en_im_name = "com.apple.keylayout.ABC"
+let g:cn_im_name = "com.sogou.inputmethod.sogouWB.wubi"
+
 let g:input_toggle = 0
 function! Fcitx2en()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status == 2
+   let s:im_name = trim(tolower(system("fcitx-remote -n")))
+   if s:im_name == tolower(g:cn_im_name)
       let g:input_toggle = 1
-      let l:a = system("fcitx-remote -c")
+      let l:a = system("fcitx-remote -s " . g:en_im_name)
    endif
 endfunction
 
 function! Fcitx2zh()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status != 2 && g:input_toggle == 1
-      let l:a = system("fcitx-remote -o")
+   let s:im_name = trim(tolower(system("fcitx-remote -n")))
+   if s:im_name != tolower(g:cn_im_name) && g:input_toggle == 1
+      let l:a = system("fcitx-remote -s " . g:cn_im_name)
       let g:input_toggle = 0
    endif
 endfunction
 
 set timeoutlen =150
-" autocmd InsertLeave * call Fcitx2en()
-" autocmd InsertEnter * call Fcitx2zh()
-
+autocmd InsertLeave * call Fcitx2en()
+autocmd InsertEnter * call Fcitx2zh()
 
 " ===
 " === 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置
@@ -311,8 +325,10 @@ autocmd FileType defx call s:defx_mappings()
 " ===
 " === fzf  
 " ===
-nnoremap <silent> <Space>ag :Ag<CR>
-nnoremap <silent> <Space>fi :Files<CR>
+" if use the ag need to install the the_silver_searcher.
+" brew install the_silver_searcher.
+nnoremap <silent> <c-f> :Ag<CR>
+nnoremap <silent> <c-d> :Files<CR>
 
 
 " ===
@@ -330,25 +346,12 @@ nmap <F8> :TagbarToggle<CR>
 " === set colorscheme
 " ===
 set background=dark
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme ayu
-colorscheme desert
-	
-
-
-" ===
-" === python-mode 
-" ===
-" let g:pymode_python ='python3'
-" let g:pymode_trim_whitespaces = 1
-" let g:pymode_doc = 1
-" let g:pymode_doc_bink = 'K'
-" let g:pymode_rope_goto_definition_bind = "<C-]>"
-" let g:pymode_lint = 1
-" let g:pymode_lint_checkers = ['pyflakes','pep8','mccabe','pylint']
-" let g:pymode_options_max_line_length = 120
-"
-
+" colorscheme desert
+" customer some settings
+" ctermbg=none
+hi Normal ctermbg=0
 
 " ===
 " === easy align
@@ -358,6 +361,7 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+
 " ===
 " === markdown preview 
 " ===
@@ -365,3 +369,17 @@ nmap <silent> <F9> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode
+
+
+" ===
+" === show the highlight group 
+" ===
+" a little more informative version of the above
+nmap <Leader>g :call <SID>SynStack()<CR>
+
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
