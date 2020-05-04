@@ -115,6 +115,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'kristijanhusak/defx-icons'
 
 " need to install the fzf
 " brew install fzf
@@ -142,6 +143,9 @@ Plug 'mhartington/oceanic-next'
 Plug 'franbach/miramare'
 " Plug 'w0ng/vim-hybrid'
 Plug 'morhetz/gruvbox'
+
+Plug 'godlygeek/tabular'
+" Plug 'plasticboy/vim-markdown'
 
 call plug#end()
 
@@ -240,7 +244,7 @@ nnoremap <leader>tn :CocCommand todolist.create<CR>
 nnoremap <leader>tl :CocList todolist<CR>
 nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload<CR>
 " coc-tasks
-noremap <silent> T :CocList tasks<CR>
+" noremap <silent> T :CocList tasks<CR>
 
 nnoremap [<space> o<Esc>
 
@@ -304,6 +308,8 @@ function! s:defx_mappings() abort
 	setlocal signcolumn=no
 	" 使用回车打开文件
 	nnoremap <silent><buffer><expr> <CR> defx#do_action('multi', ['drop'])
+	" 使用.号显示隐藏文件
+	nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
 endfunction
 
 call defx#custom#option('_', {
@@ -369,7 +375,7 @@ nmap <silent> <F9> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode
-
+source ~/.vim/md-snippits.vim
 
 " ===
 " === show the highlight group 
