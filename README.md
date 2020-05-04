@@ -48,6 +48,7 @@ sh store_zsh.sh
 source ~/.zshrc 
 
 sh store_vim.sh
+ln -s ~/.vim/vimrc ~/.vimrc
 vim ~/.vimrc 
 :PlugInstall
 
