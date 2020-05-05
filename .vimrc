@@ -375,7 +375,7 @@ nmap <silent> <F9> <Plug>MarkdownPreview        " for normal mode
 imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode
-source ~/.vim/md-snippits.vim
+source ~/.vim/md-snippets.vim
 
 " ===
 " === show the highlight group 
