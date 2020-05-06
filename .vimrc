@@ -146,6 +146,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
+Plug 'ferrine/md-img-paste.vim'
 
 call plug#end()
 
@@ -376,6 +377,15 @@ imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
 nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
 imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode
 source ~/.vim/md-snippets.vim
+
+" ===
+" === md-paste-image
+" ===
+autocmd FileType markdown nmap <buffer><silent> im :call mdip#MarkdownClipboardImage()<CR>
+let g:mdip_imgdir = '.'
+" let g:mdip_imgname = 'image'
+
+
 
 " ===
 " === show the highlight group 
