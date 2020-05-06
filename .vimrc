@@ -334,8 +334,8 @@ autocmd FileType defx call s:defx_mappings()
 " ===
 " if use the ag need to install the the_silver_searcher.
 " brew install the_silver_searcher.
-nnoremap <silent> <c-f> :Ag<CR>
-nnoremap <silent> <c-d> :Files<CR>
+nnoremap <silent> <leader>ag :Ag<CR>
+nnoremap <silent> <leader>fi :Files<CR>
 
 
 " ===
