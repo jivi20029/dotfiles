@@ -151,6 +151,9 @@ zplug 'zsh-users/zsh-completions', defer:2
 zplug 'zsh-users/zsh-history-substring-search'
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug 'plugins/kubectl' , from:oh-my-zsh 
+zplug 'plugins/autojump' , from:oh-my-zsh 
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 if ! zplug check; then
   zplug install
