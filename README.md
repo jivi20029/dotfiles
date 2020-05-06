@@ -1,6 +1,6 @@
 # dotfiles
 
-## Install zsh about
+## Install zsh dependences
 ### Install Iterm2 
 [Download Url](https://www.iterm2.com/downloads.html)
 : https://www.iterm2.com/downloads.html
@@ -15,7 +15,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 ```
 
-## Install vim about
+### Install autojump
+```
+brew install autojump
+```
+
+
+## Install vim dependences
 
 ### Install vim 
 ```shell
@@ -35,6 +41,14 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # neovim 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+
+### Install fcitx-remote-for-osx
+```
+brew install fcitx-remote-for-osx
+```
+
+## Configuration
+
 
 ### Clone config to local 
 ```
