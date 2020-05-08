@@ -4,3 +4,7 @@ cp ~/.vim/vimrc .vimrc
 cp ~/.zshrc .zshrc
 # copy the mardown config
 cp ~/.vim/md-snippets.vim md-snippets.vim
+# copy tmux config
+cp ~/.tmux.conf .tmux.conf
+cp ~/.tmux.conf.local .tmux.conf.local
+

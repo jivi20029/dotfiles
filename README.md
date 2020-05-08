@@ -47,6 +47,11 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 brew install fcitx-remote-for-osx
 ```
 
+## Install tmux
+```shell
+brew install tmux
+```
+
 ## Configuration
 
 
@@ -58,7 +63,7 @@ git clone https://github.com/jivi20029/dotfiles.git
 ### Excute config
 ```
 cd dotfiles
-sh store_zsh.sh
+sh restore_zsh.sh
 source ~/.zshrc 
 
 sh store_vim.sh
@@ -67,4 +72,8 @@ vim ~/.vimrc
 :PlugInstall
 
 ln -s ~/.vimrc ~/.config/nvim/init.vim
+vim ~/.config/nvim/init.vim
+:PlugInstall
+
+sh restore_tmux.sh
 ```
