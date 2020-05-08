@@ -97,7 +97,7 @@ map Q :q<CR>
 map fq :q!<CR>
 nnoremap <c-l> :source $MYVIMRC<CR>
   
-nnoremap <enter> o<esc>
+" nnoremap <enter> o<esc>
 
 call plug#begin('~/.vim/plugged')
 
