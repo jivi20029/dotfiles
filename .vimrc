@@ -92,7 +92,7 @@ noremap  <Space>l <C-w>l
 nnoremap <Space>v <C-v>
 
 " map s <nop>
-map S :w<CR>
+" map S :w<CR>
 map Q :q<CR>
 map fq :q!<CR>
 nnoremap <c-l> :source $MYVIMRC<CR>
