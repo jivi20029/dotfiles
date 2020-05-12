@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+# cant to use the ~/.oh-my-zsh
 export ZSH="/Users/qiaowei/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -208,3 +209,32 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='clear'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='magenta'
 POWERLEVEL9K_BACKGROUND_JOBS_BACKGROUND='clear'
 POWERLEVEL9K_BACKGROUND_JOBS_FOREGROUND='green'
+
+
+
+# alias 
+alias tpl10="tmux resize-pane -L 10"
+alias tpl20="tmux resize-pane -L 20"
+alias tpl30="tmux resize-pane -L 30"
+
+alias tpr10="tmux resize-pane -R 10"
+alias tpr20="tmux resize-pane -R 20"
+alias tpr30="tmux resize-pane -R 30"
+
+alias tpu10="tmux resize-pane -U 10"
+alias tpu20="tmux resize-pane -U 20"
+alias tpu30="tmux resize-pane -U 30"
+
+alias tpd10="tmux resize-pane -D 10"
+alias tpd20="tmux resize-pane -D 20"
+alias tpd30="tmux resize-pane -D 30"
+
+alias tnew="tmux new -s"
+alias tat="tmux at -t"
+
+alias desk="cd ~/Desktop/"
+alias doc="cd ~/Documents/"
+alias down="cd ~/Downloads/"
+# alias f="ranger"
+alias vim="nvim"
+
