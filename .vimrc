@@ -372,11 +372,12 @@ nmap ga <Plug>(EasyAlign)
 " ===
 " === markdown preview 
 " ===
-nmap <silent> <F9> <Plug>MarkdownPreview        " for normal mode
-imap <silent> <F9> <Plug>MarkdownPreview        " for insert mode
-nmap <silent> <F10> <Plug>StopMarkdownPreview    " for normal mode
-imap <silent> <F10> <Plug>StopMarkdownPreview    " for insert mode
+nmap <silent> <F9> <Plug>MarkdownPreview        
+imap <silent> <F9> <Plug>MarkdownPreview        
+nmap <silent> <F10> <Plug>StopMarkdownPreview   
+imap <silent> <F10> <Plug>StopMarkdownPreview  
 source ~/.vim/md-snippets.vim
+
 
 " ===
 " === md-paste-image
@@ -386,8 +387,7 @@ let g:mdip_imgdir = '.'
 " let g:mdip_imgname = 'image'
 
 
-
-" ===
+" === 
 " === show the highlight group 
 " ===
 " a little more informative version of the above
