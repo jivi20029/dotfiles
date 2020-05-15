@@ -96,7 +96,19 @@ nnoremap <Space>v <C-v>
 map Q :q<CR>
 map fq :q!<CR>
 nnoremap <c-l> :source $MYVIMRC<CR>
-  
+
+
+" seach highlight text in all 
+xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch('?')<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch(cmdtype)
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, a:cmdtype.'\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+
 " nnoremap <enter> o<esc>
 
 call plug#begin('~/.vim/plugged')
