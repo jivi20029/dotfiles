@@ -1,0 +1,25 @@
+source ~/.vim/vimrc
+
+" 以下是自定义快捷键-----------------
+nnoremap <LEADER>q :action QuickJavaDoc<CR>
+" ideavim内置快捷键Option+F1 //空格+m
+nnoremap nf :action SelectIn<CR>
+" idea原生快捷键为Command+[
+nnoremap <c-o> :action Back<CR>
+" idea原生快捷键为Command+B
+nnoremap gd :action GotoDeclaration<CR>
+
+" Tab operation
+" (切换标签)
+nnoremap tn gt
+nnoremap tp gT
+" 复制单个单词 //空格+y
+nnoremap <Leader>y ma"+yiw"ayiw 
+" 删除单个字符串并黏贴寄存器内容 //空格+v
+nnoremap <Leader>v mbviw"ap
+
+set easymotion 
+set keep-english-in-normal
+set keep-english-in-normal-and-restore-in-insert
+set commentary
+set surround
