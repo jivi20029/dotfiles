@@ -67,7 +67,8 @@ noremap th :-tabnext<CR>
 noremap tl :+tabnext<CR>
 
 noremap <Space><CR> :nohlsearch<CR>
-noremap <Space><Space> <Esc>/<++><CR>:nohlsearch<CR>c4l
+noremap <Leader><Leader> <Esc>/<++><CR>:nohlsearch<CR>c4l
+
 
 " inoremap jj <ESC> 
 noremap J 5j
