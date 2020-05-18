@@ -110,6 +110,11 @@ function! s:VSetSearch(cmdtype)
 endfunction
 
 
+" 复制单个单词 
+nnoremap <Leader>c "+yiw"ayiw
+" 删除单个字符串并黏贴寄存器内容 
+nnoremap <Leader>v viw"ap
+
 " nnoremap <enter> o<esc>
 
 call plug#begin('~/.vim/plugged')
