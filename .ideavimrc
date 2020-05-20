@@ -4,8 +4,11 @@ source ~/.vim/vimrc
 nnoremap <LEADER>q :action QuickJavaDoc<CR>
 " ideavim内置快捷键Option+F1 
 nnoremap nf :action SelectIn<CR>
+nnoremap nt :action ActivateProjectToolWindow<CR>
 " idea原生快捷键为Command+[
 nnoremap <c-o> :action Back<CR>
+nnoremap <c-i> :action Forward<CR>
+nnoremap <m-i> :action ImplementMethods<CR>
 " idea原生快捷键为Command+B
 nnoremap gd :action GotoDeclaration<CR>
 
