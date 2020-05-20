@@ -11,6 +11,9 @@ cp ~/.vim/md-snippets.vim md-snippets.vim
 cp ~/.tmux.conf .tmux.conf
 cp ~/.tmux.conf.local .tmux.conf.local
 
-# copy the .ideavimrc to this path 
+# copy the .ideavimrc
 cp ~/.ideavimrc .ideavimrc
+
+# copy the ~/.config/karabiner/karabiner.json
+cp ~/.config/karabiner/karabiner.json karabiner.json
 
