@@ -21,3 +21,40 @@ autocmd Filetype markdown vnoremap ,1 c# <Esc>p
 autocmd Filetype markdown vnoremap ,2 c## <Esc>p
 autocmd Filetype markdown vnoremap ,3 c### <Esc>p
 autocmd Filetype markdown vnoremap ,4 c#### <Esc>p
+
+
+
+" ===
+" === markdown preview 
+" ===
+autocmd Filetype markdown nmap <silent> <F9> <Plug>MarkdownPreview
+autocmd Filetype markdown imap <silent> <F9> <Plug>MarkdownPreview
+autocmd Filetype markdown nmap <silent> <F10> <Plug>StopMarkdownPreview
+autocmd Filetype markdown imap <silent> <F10> <Plug>StopMarkdownPreview
+
+
+" ===
+" === md-paste-image
+" ===
+autocmd FileType markdown nmap <buffer><silent> im :call mdip#MarkdownClipboardImage()<CR>
+let g:mdip_imgdir = '.'
+" let g:mdip_imgname = 'image'
+
+
+" ===
+" === vim-table-mode
+" ===
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+

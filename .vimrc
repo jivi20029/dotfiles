@@ -68,6 +68,7 @@ noremap tl :+tabnext<CR>
 
 noremap <Space><CR> :nohlsearch<CR>
 noremap <space><space> <Esc>/<++><CR>:nohlsearch<CR>c4l
+inoremap ,, <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 
 " inoremap jj <ESC> 
@@ -394,41 +395,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-" ===
-" === markdown preview 
-" ===
-nmap <silent> <F9> <Plug>MarkdownPreview        
-imap <silent> <F9> <Plug>MarkdownPreview        
-nmap <silent> <F10> <Plug>StopMarkdownPreview   
-imap <silent> <F10> <Plug>StopMarkdownPreview  
 source ~/.vim/md-snippets.vim
-
-
-" ===
-" === md-paste-image
-" ===
-autocmd FileType markdown nmap <buffer><silent> im :call mdip#MarkdownClipboardImage()<CR>
-let g:mdip_imgdir = '.'
-" let g:mdip_imgname = 'image'
-
-
-" ===
-" === vim-table-mode
-" ===
-function! s:isAtStartOfLine(mapping)
-  let text_before_cursor = getline('.')[0 : col('.')-1]
-  let mapping_pattern = '\V' . escape(a:mapping, '\')
-  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
-  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
-endfunction
-
-inoreabbrev <expr> <bar><bar>
-          \ <SID>isAtStartOfLine('\|\|') ?
-          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
-inoreabbrev <expr> __
-          \ <SID>isAtStartOfLine('__') ?
-          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
-
 
 
 " === 
