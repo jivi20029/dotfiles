@@ -16,10 +16,22 @@ autocmd Filetype markdown inoremap ,4 ####<Space><Enter><++><Esc>kA
 autocmd Filetype markdown inoremap ,l --------<Enter>
 autocmd Filetype markdown inoremap ,j &#160; &#160; &#160; &#160;
 
+autocmd Filetype markdown nnoremap ,i viwc*<Esc>pa*<Esc>
+autocmd Filetype markdown vnoremap ,i c*<Esc>pa*<Esc>
+
+autocmd Filetype markdown nnoremap ,b viwc**<Esc>pa**<Esc>
 autocmd Filetype markdown vnoremap ,b c**<Esc>pa**<Esc>
+
+autocmd Filetype markdown nnoremap ,1 viwc# <Esc>p
 autocmd Filetype markdown vnoremap ,1 c# <Esc>p
+
+autocmd Filetype markdown nnoremap ,2 viwc## <Esc>p
 autocmd Filetype markdown vnoremap ,2 c## <Esc>p
+
+autocmd Filetype markdown nnoremap ,3 viwc### <Esc>p
 autocmd Filetype markdown vnoremap ,3 c### <Esc>p
+
+autocmd Filetype markdown nnoremap ,4 viwc#### <Esc>p
 autocmd Filetype markdown vnoremap ,4 c#### <Esc>p
 
 
