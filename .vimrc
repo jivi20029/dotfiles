@@ -115,6 +115,10 @@ nnoremap <Leader>c "+yiw"ayiw
 " 删除单个字符串并黏贴寄存器内容 
 nnoremap <Leader>v viw"ap
 
+" remap the & 
+nnoremap & :&&<cr>
+xnoremap & :&&<cr>
+
 " nnoremap <enter> o<esc>
 
 call plug#begin('~/.vim/plugged')
