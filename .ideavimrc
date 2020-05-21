@@ -7,10 +7,13 @@ nnoremap nf :action SelectIn<CR>
 nnoremap nt :action ActivateProjectToolWindow<CR>
 " idea原生快捷键为Command+[
 nnoremap <c-o> :action Back<CR>
+" idea原生快捷键为Command+]
 nnoremap <c-i> :action Forward<CR>
 nnoremap <m-i> :action ImplementMethods<CR>
 " idea原生快捷键为Command+B
 nnoremap gd :action GotoDeclaration<CR>
+" idea原生快捷键为Option+F7
+nnoremap gr :action FindUsages<CR>
 
 " Tab operation
 " (切换标签)
