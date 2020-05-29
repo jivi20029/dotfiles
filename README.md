@@ -47,6 +47,16 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.g
 brew install fcitx-remote-for-osx
 ```
 
+### Install jedi
+```bash
+pip3 install jedi
+```
+
+### Install pyright
+```bash
+npm install -g pyright
+```
+
 ## Install tmux
 ```shell
 brew install tmux
