@@ -49,6 +49,8 @@ set shiftwidth=2
 set softtabstop=2
 set autoindent
 
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " split screen 
 noremap sl :set splitright<CR>:vsplit<CR>
@@ -97,8 +99,8 @@ nnoremap <Space>v <C-v>
 " map S :w<CR>
 map Q :q<CR>
 map fq :q!<CR>
-nnoremap <c-l> :source $MYVIMRC<CR>
-
+inoremap <c-l> <Esc>
+inoremap jk <Esc>
 
 " seach highlight text in all 
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -243,6 +245,11 @@ endfunction
 inoremap <silent><expr> <c-space> coc#refresh()
 " inoremap <silent><expr> <c-o> coc#refresh()
 
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 " Open up coc-commands
 nnoremap <c-c> :CocCommand<CR>
 " Text Objects
@@ -318,8 +325,11 @@ function! Fcitx2zh()
 endfunction
 
 set timeoutlen =150
-autocmd InsertLeave * call Fcitx2en()
-autocmd InsertEnter * call Fcitx2zh()
+augroup fcitx
+	autocmd!
+	autocmd InsertLeave * call Fcitx2en()
+	autocmd InsertEnter * call Fcitx2zh()
+augroup END
 
 " ===
 " === 使用 ;e 切换显示文件浏览，使用 ;a 查找到当前文件位置
