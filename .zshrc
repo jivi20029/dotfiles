@@ -240,4 +240,4 @@ alias doc="cd ~/Documents/"
 alias down="cd ~/Downloads/"
 # alias f="ranger"
 alias vim="nvim"
-
+alias cls="clear"
