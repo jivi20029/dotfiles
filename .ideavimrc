@@ -14,6 +14,7 @@ nnoremap <m-i> :action ImplementMethods<CR>
 nnoremap gd :action GotoDeclaration<CR>
 " idea原生快捷键为Option+F7
 nnoremap gr :action FindUsages<CR>
+nnoremap gm :action ReformatCode<CR>
 
 " Tab operation
 " (切换标签)
