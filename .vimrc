@@ -99,8 +99,10 @@ nnoremap <Space>v <C-v>
 " map S :w<CR>
 map Q :q<CR>
 map fq :q!<CR>
-inoremap <c-l> <Esc>
+" inoremap <c-j> <Esc>
 inoremap jk <Esc>
+inoremap <c-f> <Esc>
+inoremap <c-n> <Esc>o
 
 " seach highlight text in all 
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
@@ -157,14 +159,13 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'  
 Plug 'junegunn/vim-easy-align'
 Plug 'honza/vim-snippets'
-Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-repeat'
-" Plug 'tmhedberg/SimpylFold'
-Plug 'mhartington/oceanic-next'
 
 " themes
-Plug 'franbach/miramare'
+" Plug 'tmhedberg/SimpylFold'
+" Plug 'mhartington/oceanic-next'
+" Plug 'franbach/miramare'
 " Plug 'w0ng/vim-hybrid'
 Plug 'morhetz/gruvbox'
 
@@ -172,6 +173,7 @@ Plug 'godlygeek/tabular'
 " Plug 'plasticboy/vim-markdown'
 
 " markdown 
+" Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'ferrine/md-img-paste.vim'
 Plug 'dhruvasagar/vim-table-mode'
@@ -378,6 +380,7 @@ nnoremap <silent> <leader>fi :Files<CR>
 " === tagbar
 " ===
 nmap <F8> :TagbarToggle<CR>
+nmap <leader>st :TagbarToggle<CR><C-w>l
 " let g:tagbar_ctags_bin = 'ctags'            "tagbar以来ctags插件
 " let g:tagbar_left = 1                       "让tagbar在页面左侧显示，默认右边
 " let g:tagbar_width = 30                     "设置tagbar的宽度为30列，默认40
@@ -420,3 +423,24 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+
+" onoremap az :<c-u>normal! f]va]<cr>
+" xnoremap az :<c-u>normal! f]va]<cr>
+
+onoremap iz :<c-u>normal! f]vi]<cr>
+xnoremap iz :<c-u>normal! f]vi]<cr>
+" onoremap Iz :<c-u>normal! F(vi(<cr>
+" xnoremap Iz :<c-u>normal! F(vi(<cr>
+
+" onoremap ax :<c-u>normal! f)va)<cr>
+" xnoremap ax :<c-u>normal! f)va)<cr>
+
+onoremap ix :<c-u>normal! f)vi)<cr>
+xnoremap ix :<c-u>normal! f)vi)<cr>
+" onoremap Ix :<c-u>normal! F(vi(<cr>
+" xnoremap Ix :<c-u>normal! F(vi(<cr>
+
+
+" onoremap I' :<c-u>normal! F'vi'<cr>
+" xnoremap I' :<c-u>normal! F'vi'<cr>
