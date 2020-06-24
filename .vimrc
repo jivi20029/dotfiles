@@ -102,7 +102,9 @@ map fq :q!<CR>
 " inoremap <c-j> <Esc>
 inoremap jk <Esc>
 inoremap <c-f> <Esc>
+nnoremap <c-n> <Esc>o
 inoremap <c-n> <Esc>o
+
 
 " seach highlight text in all 
 xnoremap * :<C-u>call <SID>VSetSearch('/')<CR>/<C-R>=@/<CR><CR>
