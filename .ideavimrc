@@ -12,9 +12,16 @@ nnoremap <c-i> :action Forward<CR>
 nnoremap <m-i> :action ImplementMethods<CR>
 " idea原生快捷键为Command+B
 nnoremap gd :action GotoDeclaration<CR>
+" idea原生快捷键为Command+Option+B
+nnoremap gi :action GotoImplementation<CR>
 " idea原生快捷键为Option+F7
 nnoremap gr :action FindUsages<CR>
+
 nnoremap gm :action ReformatCode<CR>
+" idea原生快捷键为Shift + F6
+nnoremap rn :action RenameElement<CR>
+nnoremap <leader>st :action FileStructurePopup<CR>
+nnoremap <leader>ia :action ShowIntentionActions<CR>
 
 " Tab operation
 " (切换标签)
