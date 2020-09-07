@@ -21,8 +21,10 @@ set backspace=indent,eol,start
 packadd! matchit
 
 
+
 set number
-set norelativenumber 
+" set norelativenumber 
+set relativenumber 
 set cursorline 
 set wrap
 set showcmd
@@ -102,6 +104,9 @@ map fq :q!<CR>
 " inoremap <c-j> <Esc>
 inoremap jk <Esc>
 inoremap <c-f> <Esc>
+nnoremap <c-f> <Esc>
+xnoremap <c-f> <Esc>
+snoremap <c-f> <Esc>
 nnoremap <c-n> <Esc>o
 inoremap <c-n> <Esc>o
 
@@ -288,6 +293,13 @@ nnoremap [<space> o<Esc>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-u>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-i>'
+
 " ===
 " === easymotion 
 " ===
@@ -376,6 +388,7 @@ autocmd FileType defx call s:defx_mappings()
 " brew install the_silver_searcher.
 nnoremap <silent> <leader>ag :Ag<CR>
 nnoremap <silent> <leader>fi :Files<CR>
+nnoremap <silent> <leader>bu :Buffers<CR>
 
 
 " ===
