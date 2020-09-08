@@ -10,16 +10,18 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-### Install zplug
-```
-curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-```
-
 ### Install autojump
 ```
 brew install autojump
 ```
 
+### Install nerd fonts
+```
+brew install homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+```
+
+<++>
 
 ## Install vim dependences
 
@@ -74,6 +76,8 @@ git clone https://github.com/jivi20029/dotfiles.git
 ```
 cd dotfiles
 sh restore_zsh.sh
+# 安装zplug 
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 source ~/.zshrc 
 
 sh store_vim.sh
