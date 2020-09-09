@@ -21,8 +21,6 @@ brew install homebrew/cask-fonts
 brew cask install font-hack-nerd-font
 ```
 
-<++>
-
 ## Install vim dependences
 
 ### Install vim 
