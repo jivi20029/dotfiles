@@ -18,15 +18,23 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap gr :action FindUsages<CR>
 
 nnoremap gm :action ReformatCode<CR>
+nnoremap <space>f :action ReformatCode<CR>
 " idea原生快捷键为Shift + F6
 nnoremap rn :action RenameElement<CR>
+
+" nnoremap <leader>s :action FileStructurePopup<CR>
 nnoremap <leader>st :action FileStructurePopup<CR>
+nnoremap <D-s> :action FileStructurePopup<CR>
 nnoremap <leader>ia :action ShowIntentionActions<CR>
+" nnoremap <space>t :action SurroundWith<CR>
 
 " Tab operation
 " (切换标签)
 nnoremap tn gt
 nnoremap tp gT
+
+
+nnoremap daf da{dd
 
 " " 复制单个单词 
 " nnoremap <Leader>c "+yiw"ayiw

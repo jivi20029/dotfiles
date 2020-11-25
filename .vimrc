@@ -273,10 +273,12 @@ nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> im <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gm <Plug>(coc-format)
+nmap <silent> <space>f <Plug>(coc-format)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>rn <Plug>(coc-rename)
-nmap tt :CocCommand explorer<CR>
+" nmap <c-o-m> <Plug>(coc-refactor)
+nnoremap <space>e :CocCommand explorer<Esc>
 " coc-translator
 nmap ts <Plug>(coc-translator-p)
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
@@ -290,6 +292,7 @@ nnoremap <leader>tu :CocCommand todolist.download<CR>:CocCommand todolist.upload
 " noremap <silent> T :CocList tasks<CR>
 
 nnoremap [<space> o<Esc>
+nnoremap ]<space> O<Esc>
 
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
@@ -396,6 +399,7 @@ nnoremap <silent> <leader>bu :Buffers<CR>
 " ===
 nmap <F8> :TagbarToggle<CR>
 nmap <leader>st :TagbarToggle<CR><C-w>l
+nmap <leader>s :TagbarToggle<CR><C-w>l
 " let g:tagbar_ctags_bin = 'ctags'            "tagbar以来ctags插件
 " let g:tagbar_left = 1                       "让tagbar在页面左侧显示，默认右边
 " let g:tagbar_width = 30                     "设置tagbar的宽度为30列，默认40
